@@ -1,8 +1,9 @@
 <script setup>
-import { reactive,ref } from 'vue';
+import { ref } from 'vue';
 import GameSelectVue from './components/GameSelect.vue';
-import { useGameStages, useGameStates } from './stores/GuessingStore';
-
+import { useGameStates, useGameStages } from './stores/GuessingStore';
+import { RouterLink, RouterView } from 'vue-router'
+ 
 const selectGame = useGameStages();
 const attempts = useGameStates();
 
@@ -18,33 +19,14 @@ function reset() {
 
   <div class="computer-body">
     <div class="config-left">
+      <router-link to='/'>Home</router-link>
+      <router-link to="/score">Score</router-link>
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
     </div>
     <div class="display">
       <section class="game">
-        <div id="welcome-page">
-          
-          <p>Hello my dear human friend!</p>
-          <p> Would you like to play some number games? </p>
-
-          <div id="game-start" v-if="selectGame.showGameSelect === undefined">
-              <input type="radio" class="display-btn" @click="selectGame.startGame">Yes!
-              <input type="radio" class="display-btn" @click="selectGame.quitGame">No!
-          </div>
-
-          <div v-else-if="selectGame.showGameSelect === true">
-            <p class="user-reply"> >>> Yes!</p>
-            <p>On, nice!</p>
-            <GameSelectVue />
-          </div>
-
-          <div v-else>
-            <p class="user-reply"> >>> No!</p>
-            <p>I am sorry to hear it, human. Come back later</p>
-          </div>
-
-        </div>
+       <router-view></router-view>
       </section>
     </div>
     <div class="config-right">
