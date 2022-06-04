@@ -19,8 +19,10 @@ function reset() {
 
   <div class="computer-body">
     <div class="config-left">
+      <!--
       <router-link to='/'>Home</router-link>
       <router-link to="/score">Score</router-link>
+      -->
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
     </div>
@@ -54,6 +56,7 @@ main {
   padding: 2%;
   margin: auto;
   border-radius: 10px;
+  justify-items: center;
 }
 .config-left {
   width: 90px;
