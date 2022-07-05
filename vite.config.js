@@ -9,10 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    publicPath: '/guessing-game/'
   }
 })
-
-module.exports = {
-  publicPath: '/guessing-game/'
-}
