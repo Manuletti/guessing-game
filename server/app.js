@@ -1,4 +1,5 @@
 import express from 'express'
+import { getScore } from './score/scoreReader.mjs'
 
 const app = express()
 app.use(express.json())
