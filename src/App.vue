@@ -19,10 +19,8 @@ function reset() {
 
   <div class="computer-body">
     <div class="config-left">
-      <!--
       <router-link to='/'>Home</router-link>
       <router-link to="/score">Score</router-link>
-      -->
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
     </div>
