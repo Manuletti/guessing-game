@@ -1,11 +1,11 @@
 import express from 'express'
-import { getScore } from './score/scoreReader.mjs'
+import { score } from './score/scoreReader.mjs'
 
 const app = express()
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    res.send(score)
 })
 
 app.listen(3001, () => {
