@@ -8,8 +8,13 @@ function getScore() {
         return data
     }).then((data) => {
         score = JSON.parse(data)
-        console.log(score, 'Data was written')
     })
 }
 getScore()
-export { score, getScore }
+
+function writeScore(input) {
+    const newData = JSON.stringify(input)
+    fs.writeFile("./server/score/score.json", newData)
+}
+
+export { score, writeScore }

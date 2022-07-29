@@ -1,5 +1,5 @@
 import express from 'express'
-import { score } from './score/scoreReader.mjs'
+import { score, writeScore } from './score/scoreReader.mjs'
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -19,3 +19,11 @@ app.get('/', (req, res) => {
 app.listen(3001, () => {
     console.log('the server is running on port 3001')
 })
+
+var updatedScore = {
+    "Vika":3000,
+    "Igor":1783,
+    "Igorek":4000,
+    "Bojok":"оцень многа",
+    "Kotya": 1725
+}
