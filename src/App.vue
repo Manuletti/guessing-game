@@ -12,9 +12,7 @@ function reset() {
   attempts.reset()
 }
 
-const isActive = ref(true)
-const isOn = ref('switcher-on')
-
+const isGamePage = ref(true)
 
 </script>
 
@@ -24,11 +22,10 @@ const isOn = ref('switcher-on')
   <div class="computer-body">
     <div class="config-left">
       <nav class="root-switcher">
-        <router-link id="switcher" class="switcher" to='/' @click="changeSwitherStyle()"></router-link>
-        <label class="switcher-on" for="switcher">Game</label>
-        <!-- switcher style is not finised -->
-        <router-link id="switcher" class="switcher" to="/score"></router-link>
-        <label class="" for="switcher">Score</label>
+        <router-link class="switcher" to='/' @click="isGamePage = true"></router-link>
+        <label class="switcher-label" :class="{on: isGamePage}" for="switcher">Game</label>
+        <router-link class="switcher" to="/score" @click="isGamePage = false"></router-link>
+        <label class="switcher-label" :class="{on: !isGamePage}" for="switcher">Score</label>
       </nav>
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
@@ -188,12 +185,7 @@ main {
   border-color: black;
 }
 
-.switcher-off {
-  color: rgb(218, 218, 22);
-
-}
-
-.switcher-on {
+.on {
   color: rgb(218, 218, 22);
   text-shadow:
     0 0 7px rgb(218, 218, 22),
