@@ -10,7 +10,7 @@ async function getData () {
             return response.json();
         })
         .then((data) => {
-            score = data
+            score.value = data
             console.group('Results:')
             console.log('the data was wrritten: ', data);
             console.log('The variable: ', score)
@@ -18,7 +18,7 @@ async function getData () {
 }
 
 getData()
-console.log('Sync log of score: ', score)
+console.log('Sync log of score: ', score.value)
 
 </script>
 
