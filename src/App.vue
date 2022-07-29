@@ -12,6 +12,10 @@ function reset() {
   attempts.reset()
 }
 
+const isActive = ref(true)
+const isOn = ref('switcher-on')
+
+
 </script>
 
 <template>
@@ -19,10 +23,13 @@ function reset() {
 
   <div class="computer-body">
     <div class="config-left">
-      <!--
-      <router-link to='/'>Home</router-link>
-      <router-link to="/score">Score</router-link>
-      -->
+      <nav class="root-switcher">
+        <router-link id="switcher" class="switcher" to='/' @click="changeSwitherStyle()"></router-link>
+        <label class="switcher-on" for="switcher">Game</label>
+        <!-- switcher style is not finised -->
+        <router-link id="switcher" class="switcher" to="/score"></router-link>
+        <label class="" for="switcher">Score</label>
+      </nav>
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
     </div>
@@ -44,7 +51,7 @@ function reset() {
 </main>
 </template>
 
-<style>
+<style scoped>
 main {
   display: flex;
   
@@ -64,13 +71,13 @@ main {
 }
 #reset-label {
   position: relative;
-  top: 45%;
+  top: 35%;
   text-align: center;
   color: rgb(218, 218, 22);
 }
 #reset-btn {
   position: relative;
-  top: 40%;
+  top: 30%;
   width: 70px;
   height: 40px;
   background: repeating-linear-gradient(
@@ -161,6 +168,38 @@ main {
 
 .user-reply {
   color:cornsilk;
+}
+
+.root-switcher {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 15%;
+}
+
+.switcher {
+  background-color: rgba(255, 0, 0, 0.726);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border-style: solid;
+  border: 2px;
+  border-color: black;
+}
+
+.switcher-off {
+  color: rgb(218, 218, 22);
+
+}
+
+.switcher-on {
+  color: rgb(218, 218, 22);
+  text-shadow:
+    0 0 7px rgb(218, 218, 22),
+    0 0 21px rgb(218, 218, 22),
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
 
 @media (max-width: 570px) {
