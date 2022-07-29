@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import GameSelectVue from './components/GameSelect.vue';
 import { useGameStates, useGameStages } from './stores/GuessingStore';
 import { RouterLink, RouterView } from 'vue-router'
  
