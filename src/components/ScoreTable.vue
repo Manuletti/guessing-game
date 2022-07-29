@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <h1>Scores!</h1>
+<body>
     <table>
         <thead>
             <tr>
@@ -24,12 +24,22 @@ defineProps({
             </tr>
         </tbody>
     </table>
+</body>
 </template>
 
 <style scoped>
-thead {
- color:  rgb(39, 50, 52);
- background-color: lime;
- font-size: 1.5em;
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-left: 2em;
+    margin-right: 2em;
 }
+thead {
+    color:  rgb(39, 50, 52);
+    background-color: lime;
+    font-size: 1.5em;
+}
+
 </style>

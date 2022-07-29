@@ -11,7 +11,5 @@ function getScore() {
         console.log(score, 'Data was written')
     })
 }
-
 getScore()
-
-export { score }
+export { score, getScore }
