@@ -16,6 +16,12 @@ app.get('/', (req, res) => {
     res.send(score)
 })
 
+app.post('/', (req, res) => {
+    console.log(req)
+    writeScore(req)
+    res.send('Score table has been updated')
+})
+
 app.listen(3001, () => {
     console.log('the server is running on port 3001')
 })
