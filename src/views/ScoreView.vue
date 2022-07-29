@@ -19,3 +19,4 @@ fetch('http://localhost:3001/')
         <ScoreTableVue :score="score" />
     </div>
 </template>
+
