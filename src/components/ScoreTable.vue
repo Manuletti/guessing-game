@@ -13,14 +13,14 @@ defineProps({
     <table>
         <thead>
             <tr>
-                <td>Nickname</td>
+                <td>Name</td>
                 <td>Points</td>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(value, key) in score">
-                <td>{{key}}</td>
-                <td>{{value}}</td>
+                <td id="name">{{key}}</td>
+                <td id="score">{{value}}</td>
             </tr>
         </tbody>
     </table>
@@ -33,13 +33,15 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
+    text-align: center;
+    border: 0.5px;
+    border-style: solid;
 }
 thead {
     color:  rgb(39, 50, 52);
     background-color: lime;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
-
 </style>

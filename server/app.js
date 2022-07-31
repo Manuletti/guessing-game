@@ -37,11 +37,3 @@ app.post('/score', (req, res) => {
 app.listen(3001, () => {
     console.log('the server is running on port 3001')
 })
-
-var updatedScore = {
-    "Vika":3000,
-    "Igor":1783,
-    "Igorek":4000,
-    "Bojok":"оцень многа",
-    "Kotya": 17
-}
