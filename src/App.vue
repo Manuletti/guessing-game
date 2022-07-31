@@ -40,8 +40,8 @@ const isGamePage = ref(true)
       <br>
       <p class="config-labels">Machine attempts</p>
       <div class="attempts" id="comp-attempts">{{ attempts.compAttempts }}</div>
-      <p class="score-label">Human vs Machine</p>
-      <div class="score-display">{{ attempts.userWins }} : {{ attempts.compWins }}</div>
+      <p class="score-label">Game points</p>
+      <div class="score-display">{{ attempts.userPoints - attempts.compPoints }}</div>
     </div>
   </div>
 </main>

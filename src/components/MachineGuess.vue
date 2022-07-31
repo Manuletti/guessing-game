@@ -78,6 +78,9 @@ const ready = ref(false)
 function rangeToLocal() {
     min.value = attempts.rangeMin
     max.value = attempts.rangeMax
+        console.log('Max ',attempts.rangeMax)
+        console.log('Min ',attempts.rangeMin)
+    
     rangeCheck()
 }
 
