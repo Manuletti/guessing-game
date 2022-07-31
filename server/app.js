@@ -30,9 +30,8 @@ app.get('/score', (req, res) => {
 })
 
 app.post('/score', (req, res) => {
-    console.log('Req body: ', req.body)
     writeScore(req.body)
-    res.send('Score table has been updated')
+    res.send(console.log('Score table has been updated'))
 })
 
 app.listen(3001, () => {
