@@ -2,10 +2,10 @@
 import ScoreTableVue from '../components/ScoreTable.vue';
 import { ref } from 'vue';
 
-const serverUrl = 'http://localhost:3001/'
+const serverUrl = 'http://localhost:3001/score'
 
 //get request
-var score = ref({'before': 'fetch'})
+var score = ref({'Waiting for...': 'server'})
 fetch(serverUrl)
     .then((response) => {
         return response.json();
@@ -23,16 +23,19 @@ const newscore = ref('')
 
 function addNewData(name, score) {
     scoreObj[name] = score
-    console.log(scoreObj)
+    console.log('New score Obj: ', scoreObj)
     sendUpdate(serverUrl, scoreObj)
 }
 //not working, the request doesn't go to the server
 //probably i should use XML request
 function sendUpdate(url, newData){
-    console('Data:' ,newData)
+    console.log('New Data:' ,newData)
     fetch(url, {
         method: 'POST',
         // headers: {
+        //     // 'Access-Control-Allow-Origin': url,
+        //     // // 'Access-Control-Allow-Methods': 'POST',
+        //     // // 'Access-Control-Allow-Headers': 'Content-Type',
         //     'Content-Type': 'application/json'
         // },
         body: newData

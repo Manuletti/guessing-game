@@ -1,24 +1,38 @@
 import express from 'express'
 import { score, writeScore } from './score/scoreReader.mjs'
 
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-}
+
 
 const app = express()
 app.use(express.json())
-app.use(allowCrossDomain)
+app.use(function (req, res, next) {
 
-app.get('/', (req, res) => {
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
+
+app.get('/score', (req, res) => {
+    console.log(`The data was sent from the server ${score}`)
     res.send(score)
 })
 
-app.post('/', (req, res) => {
-    console.log(req)
-    writeScore(req)
+app.post('/score', (req, res) => {
+    console.log('Request: ', req)
+    console.log('Req body: ', req.body)
+    writeScore(req.body)
     res.send('Score table has been updated')
 })
 
@@ -31,5 +45,5 @@ var updatedScore = {
     "Igor":1783,
     "Igorek":4000,
     "Bojok":"оцень многа",
-    "Kotya": 1725
+    "Kotya": 17
 }
