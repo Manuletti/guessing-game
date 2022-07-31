@@ -133,7 +133,7 @@ main {
 }
 .score-label {
   position: relative;
-  top: 15px;
+  top: 25px;
   margin: auto;
   color: rgb(218, 218, 22);
   text-align: center;

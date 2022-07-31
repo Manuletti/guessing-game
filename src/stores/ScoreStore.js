@@ -18,6 +18,9 @@ export const useScoreStore = defineStore('useScoreStore', {
                 .then((data) => {
                     this.currentScore = data
                     updatedScore = data
+                        console.group('Object props')
+                        console.log('Obj', updatedScore)
+                        console.log('Obj length ', Object.keys(updatedScore).length)
                     })
         }, 
         postUpdatedScore(newData) {

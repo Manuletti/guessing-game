@@ -45,6 +45,6 @@ body {
 thead {
     color:  rgb(39, 50, 52);
     background-color: lime;
-    font-size: 1.2em;
+    /* font-size: 1.1em; */
 }
 </style>
