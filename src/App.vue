@@ -1,8 +1,12 @@
 <script setup>
 import { ref } from 'vue';
 import { useGameStates, useGameStages } from './stores/GuessingStore';
+import { useScoreStore } from './stores/ScoreStore';
 import { RouterLink, RouterView } from 'vue-router'
- 
+
+const score = useScoreStore()
+score.getScoreRequest()
+
 const selectGame = useGameStages();
 const attempts = useGameStates();
 

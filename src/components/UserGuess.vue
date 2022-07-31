@@ -68,10 +68,6 @@ function tryAgain() {
 onMounted(() => {
     if (stage.competitive) {
         secretNumber.value = Math.floor(Math.random() * (state.rangeMax - state.rangeMin) + state.rangeMin)
-        console.group('Numbers:')
-        console.log('Max ',state.rangeMax)
-        console.log('Min ',state.rangeMin)
-        console.log('Secret: ', secretNumber.value)
     } 
 })
 /*

@@ -1,10 +1,13 @@
 <script setup>
-import { defineProps} from 'vue';
+// import { defineProps} from 'vue';
 
-defineProps({
-    score: Object,
-})
+// defineProps({
+//     score: Object,
+// })
 
+import { useScoreStore } from '../stores/ScoreStore';
+
+const score = useScoreStore()
 
 </script>
 
@@ -18,7 +21,7 @@ defineProps({
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(value, key) in score">
+            <tr v-for="(value, key) in score.currentScore">
                 <td id="name">{{key}}</td>
                 <td id="score">{{value}}</td>
             </tr>

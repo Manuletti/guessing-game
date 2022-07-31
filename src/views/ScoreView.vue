@@ -4,18 +4,6 @@ import { ref } from 'vue';
 
 const serverUrl = 'http://localhost:3001/score'
 
-//get request
-var score = ref({'Waiting for...': 'server'})
-fetch(serverUrl)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        scoreObj = data
-        score.value = data
-        console.log('Simple Obj ', scoreObj)
-        })
-
 //post request
 var scoreObj = {}
 const newname = ref('')
