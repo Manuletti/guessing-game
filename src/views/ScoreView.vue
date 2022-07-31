@@ -32,13 +32,13 @@ function sendUpdate(url, newData){
     console.log('New Data:' ,newData)
     fetch(url, {
         method: 'POST',
-        // headers: {
+        headers: {
         //     // 'Access-Control-Allow-Origin': url,
         //     // // 'Access-Control-Allow-Methods': 'POST',
         //     // // 'Access-Control-Allow-Headers': 'Content-Type',
-        //     'Content-Type': 'application/json'
-        // },
-        body: newData
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)
     })
 }
 

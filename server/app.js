@@ -25,12 +25,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/score', (req, res) => {
-    console.log(`The data was sent from the server ${score}`)
+    console.log('The data was sent from the server: ', score)
     res.send(score)
 })
 
 app.post('/score', (req, res) => {
-    console.log('Request: ', req)
     console.log('Req body: ', req.body)
     writeScore(req.body)
     res.send('Score table has been updated')
