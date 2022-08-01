@@ -1,10 +1,17 @@
 export function sorting(input) {
-    console.log('Data recieved: ', input)
     var sorted = Object.fromEntries(
         Object.entries(input).sort(([,a],[,b]) => b-a)
     );
-    console.log('Sorted: ', input)
+    limitScoreTable(sorted)
+    console.log('Result ',sorted)
     return sorted
+}
+
+function limitScoreTable(sortedTable) {
+    if (Object.keys(sortedTable).length > 7) {
+        delete sortedTable[Object.keys(sortedTable)[7]]
+    }
+    return sortedTable
 }
 
 // const testObj = {
@@ -14,7 +21,8 @@ export function sorting(input) {
 //     "Vika": 700,
 //     "Igor": 5300,
 //     "Mixa": 980, 
-//     "Nastya": 20
+//     "Nastya": 20,
+//     "Deleted": 150
 // }
 
-// sortScoreObj(testObj)
+// sorting(testObj)

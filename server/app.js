@@ -31,7 +31,8 @@ app.get('/score', (req, res) => {
 })
 
 app.post('/score', (req, res) => {
-    writeScore(sorting(req.body))
+    let newScore = sorting(req.body)
+    writeScore(newScore)
     res.send(console.log('Score has been updated'))
 })
 
