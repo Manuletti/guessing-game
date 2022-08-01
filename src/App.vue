@@ -54,7 +54,6 @@ const isGamePage = ref(true)
 <style scoped>
 main {
   display: flex;
-  
 }
 .computer-body {
   background-color: rgb(39, 50, 52);
@@ -68,6 +67,8 @@ main {
 .config-left {
   width: 90px;
   order: 1;
+  margin-right: 0.5em;
+
 }
 #reset-label {
   position: relative;
@@ -96,6 +97,7 @@ main {
   flex-wrap: wrap;
   width: 150px;
   order: 3;
+  margin-left: 0.7em;
 }
 .attempts {
   width: 40px;
@@ -110,6 +112,7 @@ main {
   text-align: center;
   line-height: 40px;
   margin: auto;
+  font-family: 'IBM Plex Mono', monospace;
 }
 .config-labels {
   width: 70px;
@@ -130,6 +133,7 @@ main {
   text-align: center;
   line-height: 40px;
   margin: auto;
+  font-family: 'IBM Plex Mono', monospace;
 }
 .score-label {
   position: relative;
@@ -146,6 +150,7 @@ main {
     padding-bottom: 10px;
     border-radius: 10px;
     order: 2;
+    font-family: 'IBM Plex Mono', monospace;
   }
 .game {
   background-color: rgb(85, 78, 78);
