@@ -2,7 +2,8 @@
 <section class="game-select-page">
     <p>What game do you want to play? Do you want to guess or me to guess?</p>
     <div id="game-start" v-if="gameSelect.userGuess === false && gameSelect.compGuess === false && gameSelect.competitive === false">
-        <input type="radio" class="display-btn" @click="startCompetitiveGame()">Game for scores
+        <input type="radio" class="display-btn" @click="startCompetitiveGame()">Game for scores!
+        <br>
         <input type="radio" class="display-btn" @click="gameSelect.gameSelect('user-guess')">I'll guess
         <input type="radio" class="display-btn" @click="gameSelect.gameSelect('comp-guess')">You'll guess
     </div>
