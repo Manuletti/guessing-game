@@ -1,4 +1,4 @@
-export function sorting (input) {
+export function sorting(input) {
     console.log('Data recieved: ', input)
     var sorted = Object.fromEntries(
         Object.entries(input).sort(([,a],[,b]) => b-a)

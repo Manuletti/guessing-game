@@ -7,11 +7,11 @@ import { RouterLink, RouterView } from 'vue-router'
 const score = useScoreStore()
 score.getScoreRequest()
 
-function testPost(newName, newScore){
-  setTimeout(() => {
-    score.addNewScore(newName, newScore)
+setTimeout(() => {
+    score.addNewScore('newName', 567)
   }, 5000)
-} 
+
+
 
 const selectGame = useGameStages();
 const attempts = useGameStates();
