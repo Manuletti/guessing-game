@@ -23,16 +23,18 @@ export const useScoreStore = defineStore('useScoreStore', {
                         console.log('Obj length ', Object.keys(updatedScore).length)
                     })
         }, 
-        postUpdatedScore(newData) {
+        async postUpdatedScore(newData) {
             console.log('New Data:' ,newData)
-            fetch(this.serverUrl, {
+            await fetch(this.serverUrl, {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(newData)
             }).then(() => {
-                this.getScoreRequest()
+                setTimeout(() => {
+                    this.getScoreRequest()
+                }, 1000)
             })
         }, 
         addNewScore(name, score){
