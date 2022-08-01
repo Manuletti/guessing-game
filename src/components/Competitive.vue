@@ -20,6 +20,12 @@
             <p>It is time to name a winner.</p>
             <p>I guessed your number in {{attempts.compAttempts}} attempts and you guessed my number in {{attempts.userAttempts}} attempts.</p>
             <p>{{winner}}</p>
+            <div>
+                <p>Do you want to submit your score? It will submited if you beat the lowest gamer in score table!</p>
+                <input type="text" placeholder="Your nickname" required v-model="userNickName">
+                <button @click="score.addNewScore(userNickName, attempts.userPoints)">Submit</button>
+            </div>
+            <br>
             <button @click="stage.backToSelect">One more game</button>
         </section>
     </div>
@@ -31,22 +37,26 @@ import { ref, computed } from 'vue';
 import MachineGuess from './MachineGuess.vue';
 import UserGuess from './UserGuess.vue';
 import { useGameStages, useGameStates } from '../stores/GuessingStore';
+import { useScoreStore } from '../stores/ScoreStore';
 
 const ready = ref(false)
 const stage = useGameStages()
 const attempts = useGameStates()
+const score = useScoreStore()
+const userNickName = ref('')
 
 const winner = computed(() => {
     if (attempts.compAttempts < attempts.userAttempts) {
-        attempts.compWins += 1
+        attempts.compPoints = (attempts.userAttempts - attempts.compAttempts) * 100
         return 'The winner is ... me! Ha-ha! But it was a good contest for your meat brain, human!'
     } else if (attempts.compAttempts > attempts.userAttempts) {
-        attempts.userWins += 1
+        attempts.userPoints = (attempts.compAttempts - attempts.userAttempts) * 100
         return 'You have won, human... I should remake my algoritms to beat you next time.'
     } else {
         return 'We are equal! Finally, a worthy opponent!'
     }
 })
+
 </script>
 
 <style scoped>
@@ -59,5 +69,13 @@ button {
 }
 .user-reply {
   color:cornsilk;
+}
+
+input {
+    background-color: rgb(85, 78, 78);
+    color: cornsilk;
+    border-color: lime;
+    text-align: center;
+    -moz-appearance: textfield;
 }
 </style>

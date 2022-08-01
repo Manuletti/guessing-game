@@ -32,6 +32,7 @@
 </template>
 
 <script setup>
+import { generate } from '@vue/compiler-core';
 import { ref, onMounted } from 'vue';
 import { useGameStates, useGameStages } from '../stores/GuessingStore';
 const state = useGameStates()
@@ -66,7 +67,7 @@ function tryAgain() {
 
 onMounted(() => {
     if (stage.competitive) {
-        secretNumber.value = Math.round(Math.random (state.rangeMax - state.rangeMin) + state.rangeMin)
+        secretNumber.value = Math.floor(Math.random() * (state.rangeMax - state.rangeMin) + state.rangeMin)
     } 
 })
 /*

@@ -1,5 +1,6 @@
 import express from 'express'
 import { score, writeScore } from './score/scoreReader.mjs'
+import { sorting } from './middleware/sorting.mjs'
 
 
 
@@ -30,8 +31,9 @@ app.get('/score', (req, res) => {
 })
 
 app.post('/score', (req, res) => {
-    writeScore(req.body)
-    res.send(console.log('Score table has been updated'))
+    let newScore = sorting(req.body)
+    writeScore(newScore)
+    res.send(console.log('Score has been updated'))
 })
 
 app.listen(3001, () => {

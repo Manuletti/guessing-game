@@ -50,8 +50,8 @@ export const useGameStates = defineStore('GameStates', {
         return {
             userAttempts: 0,
             compAttempts: 0,
-            userWins: 0,
-            compWins: 0,
+            userPoints: 0,
+            compPoints: 0,
             userAttemptsLimit: 5,
             compAttemptsLimit: 5,
             rangeMin: undefined,
