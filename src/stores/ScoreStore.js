@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-var updatedScore = {}
+export var updatedScore = {}
 
 export const useScoreStore = defineStore('useScoreStore', {
     state() {
@@ -18,11 +18,12 @@ export const useScoreStore = defineStore('useScoreStore', {
                 .then((data) => {
                     this.currentScore = data
                     updatedScore = data
-                        console.group('Object props')
-                        console.log('Obj', updatedScore)
-                        console.log('Obj length ', Object.keys(updatedScore).length)
+                        // console.group('Object props')
+                        // console.log('Obj', updatedScore)
+                        // console.log('Obj length ', Object.keys(updatedScore).length)
                     })
         }, 
+
         async postUpdatedScore(newData) {
             console.log('New Data:' ,newData)
             await fetch(this.serverUrl, {
@@ -36,7 +37,8 @@ export const useScoreStore = defineStore('useScoreStore', {
                     this.getScoreRequest()
                 }, 1000)
             })
-        }, 
+        },
+
         addNewScore(name, score){
             updatedScore[name] = score
             this.postUpdatedScore(updatedScore)
