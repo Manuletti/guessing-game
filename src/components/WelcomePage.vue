@@ -8,7 +8,7 @@ const selectGame = useGameStages();
 <template>
  <div id="welcome-page">  
     <p>Hello my dear human friend!</p>
-    <p> Would you like to play some number games? </p>
+    <p> Would you like to play a numbers game? </p>
 
     <div id="game-start" v-if="selectGame.showGameSelect === undefined">
         <input type="radio" class="display-btn" @click="selectGame.startGame">Yes!

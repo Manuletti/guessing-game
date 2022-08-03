@@ -15,7 +15,7 @@ function reset() {
   attempts.reset()
 }
 
-const isGamePage = ref(true)
+const isGamePage = ref('game')
 
 </script>
 
@@ -25,10 +25,12 @@ const isGamePage = ref(true)
   <div class="computer-body">
     <div class="config-left">
       <nav class="root-switcher">
-        <router-link class="switcher" to='/' @click="isGamePage = true"></router-link>
-        <label class="switcher-label" :class="{on: isGamePage}" for="switcher">Game</label>
-        <router-link class="switcher" to="/score" @click="isGamePage = false"></router-link>
-        <label class="switcher-label" :class="{on: !isGamePage}" for="switcher">Score</label>
+        <router-link class="switcher" to='/' @click="isGamePage = 'game'"></router-link>
+        <label class="switcher-label" :class="{on: isGamePage === 'game'}" for="switcher">Game</label>
+        <router-link class="switcher" to="/score" @click="isGamePage = 'score'"></router-link>
+        <label class="switcher-label" :class="{on: isGamePage === 'score'}" for="switcher">Score</label>
+        <router-link class="switcher" to="/info" @click="isGamePage = 'info'"></router-link>
+        <label class="switcher-label" :class="{on: isGamePage === 'info'}" for="switcher">Info</label>
       </nav>
       <h3 id="reset-label">Reset</h3>
       <button id="reset-btn" @click="reset()"></button>
@@ -54,6 +56,8 @@ const isGamePage = ref(true)
 <style scoped>
 main {
   display: flex;
+  background-color: rgb(0, 0, 0);
+  height: 98vh;
 }
 .computer-body {
   background-color: rgb(39, 50, 52);
@@ -61,6 +65,7 @@ main {
   flex-wrap: wrap;
   padding: 2%;
   margin: auto;
+  margin-top: 10%;
   border-radius: 10px;
   justify-items: center;
 }
@@ -72,13 +77,13 @@ main {
 }
 #reset-label {
   position: relative;
-  top: 35%;
+  top: 30%;
   text-align: center;
   color: rgb(218, 218, 22);
 }
 #reset-btn {
   position: relative;
-  top: 30%;
+  top: 25%;
   width: 70px;
   height: 40px;
   background: repeating-linear-gradient(
@@ -205,6 +210,8 @@ main {
 @media (max-width: 570px) {
   .computer-body {
     height: fit-content;
+
+    margin-top: 0%;
   }
   #reset-btn, #reset-label {
     position: static;
@@ -217,6 +224,7 @@ main {
     padding-right: 2px;
     padding-bottom: 5px;
     border-radius: 15px;
+    width: 90vw;
   }
   .config-left {
     align-items: center;

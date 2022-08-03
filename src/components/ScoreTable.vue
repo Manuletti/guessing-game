@@ -47,4 +47,11 @@ thead {
     background-color: lime;
     /* font-size: 1.1em; */
 }
+
+@media (max-width: 570px) {
+    body {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+}
 </style>

@@ -1,14 +1,15 @@
 <template>
 <section class="game-select-page">
-    <p>What game do you want to play? Do you want to guess or me to guess?</p>
+    <p>We are going to play for scores!</p>
     <div id="game-start" v-if="gameSelect.userGuess === false && gameSelect.compGuess === false && gameSelect.competitive === false">
-        <input type="radio" class="display-btn" @click="startCompetitiveGame()">Game for scores!
-        <br>
+        <input type="radio" class="display-btn" @click="startCompetitiveGame()">Let's start
+        <!-- I decided to hide this game types from new release -->
+        <!-- <br>
         <input type="radio" class="display-btn" @click="gameSelect.gameSelect('user-guess')">I'll guess
-        <input type="radio" class="display-btn" @click="gameSelect.gameSelect('comp-guess')">You'll guess
+        <input type="radio" class="display-btn" @click="gameSelect.gameSelect('comp-guess')">You'll guess -->
     </div>
 
-    <div v-else-if="gameSelect.userGuess === true">
+    <!-- <div v-else-if="gameSelect.userGuess === true">
         <p class="user-reply"> >>> I want to guess</p>
         <UserGuess />
     </div>
@@ -16,7 +17,7 @@
     <div v-else-if="gameSelect.compGuess === true">
         <p class="user-reply"> >>> You guess</p>
         <MachineGuess />
-    </div>
+    </div> -->
 
     <div v-else-if="gameSelect.competitive === true">
         <p class="user-reply"> >>> Competitive game</p>
