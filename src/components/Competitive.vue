@@ -47,10 +47,10 @@ const userNickName = ref('')
 
 const winner = computed(() => {
     if (attempts.compAttempts < attempts.userAttempts) {
-        attempts.compPoints = (attempts.userAttempts - attempts.compAttempts) * 100
+        attempts.compPoints += ((attempts.userAttempts - attempts.compAttempts) * 100)
         return 'The winner is ... me! Ha-ha! But it was a good contest for your meat brain, human!'
     } else if (attempts.compAttempts > attempts.userAttempts) {
-        attempts.userPoints = (attempts.compAttempts - attempts.userAttempts) * 100
+        attempts.userPoints += ((attempts.compAttempts - attempts.userAttempts) * 100)
         return 'You have won, human... I should remake my algoritms to beat you next time.'
     } else {
         return 'We are equal! Finally, a worthy opponent!'
